@@ -192,7 +192,7 @@ static const NSTimeInterval LSVShakeAnimationDuration = 0.5f;
     CAAnimation * shake = [self lsv_makeShakeAnimation];
     [_pincodeView.layer addAnimation:shake forKey:@"shake"];
     [_pincodeView setEnabled:NO];
-    [_subtitleLabel setText:NSLocalizedStringFromTable(@"Pincode Not Match Title", @"JKLockScreen", nil)];
+    [_subtitleLabel setText:NSLocalizedStringFromTable(@"Pincode Not Match", @"JKLockScreen", nil)];
     
     dispatch_time_t delayInSeconds = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LSVShakeAnimationDuration * NSEC_PER_SEC));
     dispatch_after(delayInSeconds, dispatch_get_main_queue(), ^(void){
@@ -203,8 +203,8 @@ static const NSTimeInterval LSVShakeAnimationDuration = 0.5f;
             case LockScreenModeNormal:
             case LockScreenModeNew: {
                 // [신규 모드]
-                [self lsv_updateTitle:NSLocalizedStringFromTable(@"Pincode Title",    @"JKLockScreen", nil)
-                             subtitle:NSLocalizedStringFromTable(@"Enter Your Pincode Again", @"JKLockScreen", nil)];
+                [self lsv_updateTitle:NSLocalizedStringFromTable(@"Enter Pincode",    @"JKLockScreen", nil)
+                             subtitle:NSLocalizedStringFromTable(@"", @"JKLockScreen", nil)];
                 
                 break;
             }
@@ -333,7 +333,7 @@ static const NSTimeInterval LSVShakeAnimationDuration = 0.5f;
         
         // 재입력 타이틀로 전환
         [self lsv_updateTitle:NSLocalizedStringFromTable(@"Enter Pincode",    @"JKLockScreen", nil)
-                     subtitle:NSLocalizedStringFromTable(@"Enter Your Pincode Again", @"JKLockScreen", nil)];
+                     subtitle:NSLocalizedStringFromTable(@"", @"JKLockScreen", nil)];
         
         // 서브타이틀과 pincodeviw 이동 애니메이션
         [self lsv_swipeSubtitleAndPincodeView];
